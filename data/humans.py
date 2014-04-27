@@ -1,11 +1,15 @@
 ﻿#human race file
 
-import RaceBP, Buildables, Ships, Technology, Soldiers
+import RaceBP, Buildables, Ships, Technology, Soldiers, Colonies
 
+#Base human class
 class humanRace(RaceBP.baseRace):
 	def __init__(self):
 		self.name = "The Humans"
 		self.traits = ()
+		
+	def createStartingColonies(self):
+		pass
 		
 	#List of human structures
 	class human_Habitat(Buildables.baseStructure):

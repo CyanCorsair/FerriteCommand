@@ -15,7 +15,7 @@ class gameSetup(object):
 	def setupGame(self):
 		self.decision = raw_input("Do you wish to start a new game or load one? \n>")
 
-		if 'new game' in self.decision:
+		if 'new game' in self.decision or 'New game' in self.decision or 'New Game' in self.decision:
 			self.createPlayer()
 		else:
 			print 'That is invalid.'
@@ -27,7 +27,7 @@ class gameSetup(object):
 		vars()[self.input] = Player.Player(self.input)
 		self.input_race = raw_input("""Please choose a race to play: 
 		1. Humans
-		2. Ikhventi \n>""")
+		2. Ikhventi \n>""").lower()
 		if self.input_race in Player.races:
 			vars()[self.input].race = Player.races[self.input_race]
 			print vars()[self.input].race.name
@@ -36,7 +36,7 @@ class gameSetup(object):
 				print "You are starting with %s" % self.i.name
 				print self.i.owner
 		else:
-			print "Race not found. Try again."
+			print "Race not found. Try again." #Not resetting to race selection
 		player_list.append(vars()[self.input])
 		print "Do you wish to include another?"
 		self.input = raw_input("> ")

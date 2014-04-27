@@ -1,15 +1,14 @@
 ﻿#Ikhventi race file
 
-import RaceBP
-import Buildables
-import Ships
-import Technology
-import Soldiers
+import RaceBP, Buildables, Ships, Technology, Soldiers, Colonies
 
 class ikhventiRace(RaceBP.baseRace):
 	def __init__(self):
 		self.name = "The Ikhventi"
 		self.traits = ()
+		
+	def createStartingColonies(self):
+		pass
 		
 	#List of ikhventi structures
 	class ikhventi_Habitat(Buildables.baseStructure):

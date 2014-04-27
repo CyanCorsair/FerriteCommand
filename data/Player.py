@@ -19,6 +19,26 @@ class Player(object):
 		self.turn = 0
 		self.race = ""
 	
+	def colonizationOrder(self):
+		#Returns a list of stellar bodies in a given star system,
+		#and then begins colonization.
+		print "Specify your chosen star system: \n"
+		self.starsys_choice = raw_input("> ").lower()
+		for self.i in Starsystems.starsys_list:
+			if self.starsys_choice in self.i:
+				print "Which stellar body would you like to colonize? \n"
+				self.body_choice = raw_input("> ").lower()
+				for self.j in self.starsys_choice.bodies:
+					if self.body_choice in self.j:
+						self.newColonyName = raw_input("Please enter your colony name: ")
+						print "Founding colony. \n"
+						self.colony = Colonies.Colony(self.newColonyName, self.body_choice, self,
+													self.body_choice.size, self.body_choice.type,
+													self.body_choice.anomalies)
+						self.owned_colonies.append(self.colony)
+						print "Founded %s", self.colony.name
+						print "Current colonies: ", self.owned_colonies
+	
 	def buildOrderStructure(self):
 		#Looks through list of colonies, issues order to individual colony
 		print("Specify the colony you wish to build at: \n")

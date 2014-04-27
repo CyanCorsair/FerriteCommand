@@ -3,10 +3,14 @@
 import humans, ikhventi
 
 class Colony(object):
-	def __init__(self, name, owner, location):
+	def __init__(self, name, owner, location, baseSize, baseType, anomalies):
 		self.name = name
 		self.location = location
 		self.owner = owner
+		self.baseSize = baseSize
+		self.baseType = baseType
+		self.anomalies = anomalies
+		
 		self.buildings = []
 		self.build_list = []
 		
